@@ -162,7 +162,6 @@ if (isWorker || isChromeApp) {
     };
 
     self.startServer = function(defs, plugins, scripts) {
-        console.log('tern: starting server');
         if (scripts) importScripts.apply(null, scripts);
         server = new tern.Server({
             getFile: getFile,
