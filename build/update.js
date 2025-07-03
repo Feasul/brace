@@ -26,7 +26,7 @@ var aceTag = 'v1.4.1';
 
   +function cloneFreshAndRemoveUnneeded() {
     rm('-rf', buildroot)
-    exec('git clone git://github.com/ajaxorg/ace-builds.git ' + buildroot);
+    exec('git clone https://github.com/ajaxorg/ace-builds.git ' + buildroot);
     exec('(cd ' + buildroot + ' && git pull && git checkout ' + aceTag + ')');
 
     [ 'demo', 'kitchen-sink', 'src-min', 'src', 'textarea' ]
@@ -37,7 +37,7 @@ var aceTag = 'v1.4.1';
     // move src-noconflict files to root after we cleaned it since that is all we need
     mv(path.join(buildroot, 'src-min-noconflict/snippets'), buildroot);
     mv(path.join(buildroot, 'src-noconflict/*'), buildroot);
-    cp(path.join(buildroot, '../tern/*'), buildroot)
+    // cp(path.join(buildroot, '../tern/*'), buildroot)
 
     rm('-rf', path.join(buildroot, 'src-min-noconflict'));
     rm('-rf', path.join(buildroot, 'src-noconflict'));
